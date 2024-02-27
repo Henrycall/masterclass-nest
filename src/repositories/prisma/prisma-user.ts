@@ -1,7 +1,9 @@
 import { PrismaService } from 'src/database/prisma.service'
 import { User } from '../user-repository'
 import { v4 as uuidv4 } from 'uuid';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class PrismaUserRepository implements User { 
     constructor(private prisma: PrismaService){}
 
@@ -10,8 +12,8 @@ export class PrismaUserRepository implements User {
                 data:{
                     id: uuidv4(), 
                     name,
-                    function : memberFunction
-                }
+                    function : memberFunction,
+                },
             })
         }
 }
