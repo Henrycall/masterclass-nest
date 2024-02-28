@@ -1,4 +1,4 @@
-import { IsNotEmpty, Length } from "class-validator";
+import { IsNotEmpty, IsString, Length } from "class-validator";
 
 export class CreateUser {
     @IsNotEmpty()
@@ -6,7 +6,8 @@ export class CreateUser {
     name: string;
 
     @IsNotEmpty({
-        message: 'user invalid'
+        message: 'function invalid'
     })
+    @IsString()
     function: string;
 }
